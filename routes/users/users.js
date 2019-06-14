@@ -13,9 +13,9 @@ module.exports=(app, Member) => {
                 message:"signin"
             });
         }
-
     })
-    .post('signup', async(req, res =>{
+
+    .post('signup', async(req, res) =>{
         var member = new Member(req.body);
 
         try{
@@ -30,5 +30,5 @@ module.exports=(app, Member) => {
             message : "signup"
         });
         
-    }));
+    });
 }

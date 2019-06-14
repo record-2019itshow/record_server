@@ -6,11 +6,11 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 
-app.use(session({
-  secret: '@#@$MYSIGN#@$#$', // 우선 임의로 키 설정
-  resave: false,
-  saveUninitialized: true
- }));
+// app.use(session({
+//   secret: '@#@$MYSIGN#@$#$', // 우선 임의로 키 설정
+//   resave: false,
+//   saveUninitialized: true
+//  }));
 
 // DB Connect
 var db = mongoose.connection;
