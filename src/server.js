@@ -8,9 +8,5 @@ http.createServer(function(req, res){
  res.writeHead(200, { 'Content-Type': 'text/plain' });
  res.end('Hello World\n');
 }).listen(port, hostname);
-/*
-var server = app.listen(port, function() {
-    console.log('서버 기동 :' + port);
-});
-*/
+
 console.log('Server running at http://'+hostname+':'+port);
