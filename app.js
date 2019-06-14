@@ -8,7 +8,6 @@ var mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 
-module.exports = app;
 mongoose.set('useCreateIndex', true)
 mongoose.connect("mongodb://localhost/record", { useNewUrlParser: true });
 
@@ -18,7 +17,7 @@ import { Records, HashTags, Members } from './models/RecordSchema';
 var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
-require('./routes/record/dayRecord')(app, Records);
+require('./routes/record/dayRecord')(app ,Records);
 //app.use('/getDayRecord', dayRecord);
 /*
 app.get('/getDayRecord/:id/:time', async(req, res) => {
