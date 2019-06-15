@@ -1,12 +1,11 @@
 module.exports = (app, Records) => {
- console.log("sibal");
- app.get('/dayRecord', async (req, res) => {
-  console.log("Inhyum");
-  //var result = await Records.findOne({ id: req.params.id, time: req.params.time });
-  //if(result) res.status(200).json(result);
-  //else res.status(400).json({message: 'No Record'});
-  //else res.send('No Record');
-  //console.log(req.params.id);
-  //res.send(result);
+ app.get('/getDayRecord/:record_key', async (req, res) => {
+  var result = await Records.findOne({ record_key: req.params.record_key });
+  if(result) {
+   res.status(200).json(result.id + "님의 한줄 일기: " + result.content);
+   //res.status(200).json(result.content);
+  } else {
+   res.status(400).json('No Record');
+  }
  });
 };
