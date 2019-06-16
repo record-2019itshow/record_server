@@ -15,7 +15,7 @@ module.exports = function (app, Members) {
         }
     })
 
-    .post('signup', async(req, res) =>{
+    .post('/signup', async(req, res) =>{
         var member = new Member(req.body);
         try{
             await member.save();
@@ -26,7 +26,7 @@ module.exports = function (app, Members) {
         }
 
         res.status(200).json({
-            message : "signup"
+            message : member
         });
         
     });
