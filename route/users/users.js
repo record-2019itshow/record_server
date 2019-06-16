@@ -1,4 +1,4 @@
-module.exports=(app, Member) => {
+module.exports = function (app, Member) {
     app.post('/signin', async(req, res) => {
         var result = await Member.findOne(req.body);
         if(!result){  // result에 값이 없으면
@@ -15,7 +15,7 @@ module.exports=(app, Member) => {
         }
 
     })
-    .post('signup', async(req, res =>{
+    .post('/signup', async(req, res)=>{
         var member = new Member(req.body);
 
         try{
@@ -30,5 +30,5 @@ module.exports=(app, Member) => {
             message : "signup"
         });
         
-    }));
-}
+    });
+};
