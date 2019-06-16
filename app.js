@@ -35,7 +35,7 @@ import { Records, HashTags, Members } from './models/RecordSchema';
 var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
-
+//date ㅐㄱ체. . . 그거 .. . 날짜표현 . . . ㄱㄱ
 
 require('./routes/record')(app ,Records);
 require('./routes/users')(app ,Members);
