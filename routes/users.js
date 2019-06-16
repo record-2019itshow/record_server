@@ -1,6 +1,6 @@
 module.exports = function (app, Member) {
     app.post('/signin', async(req, res) => {
-        var result = await Member.findOne(req.body);
+        var result = await Member.findOne({id : req.body.id, pw : req.body.pw});
         if(!result){  // result에 값이 없으면
             res.status(400).json({
                 message: "failed"
@@ -14,14 +14,9 @@ module.exports = function (app, Member) {
             });
         }
     })
-<<<<<<< HEAD:route/users/users.js
-    .post('/signup', async(req, res)=>{
-=======
 
     .post('signup', async(req, res) =>{
->>>>>>> f2af5fa309b46e955ac504a02691d74773b8eba3:routes/users.js
         var member = new Member(req.body);
-
         try{
             await member.save();
         }catch(e){
@@ -35,8 +30,4 @@ module.exports = function (app, Member) {
         });
         
     });
-<<<<<<< HEAD:route/users/users.js
 };
-=======
-}
->>>>>>> f2af5fa309b46e955ac504a02691d74773b8eba3:routes/users.js
