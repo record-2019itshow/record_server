@@ -29,10 +29,6 @@ var MemberSchema = new Schema({ // 회원
  pw: String // 회원 패스워드
 });
 
-// module.exports = mongoose.model('Record', RecordSchema);
-// module.exports = mongoose.model('HashTag', HashTagSchema);
-// module.exports = mongoose.model('Member', MemberSchema);
-
 let Records = mongoose.model("Record", RecordSchema);
 let HashTags = mongoose.model("HashTag", HashTagSchema);
 let Members = mongoose.model("Member", MemberSchema);

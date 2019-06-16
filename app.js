@@ -35,8 +35,10 @@ import { Records, HashTags, Members } from './models/RecordSchema';
 var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
-require('./routes/record/dayRecord')(app ,Records);
-require('./routes/users/users')(app ,Members);
+
+
+require('./routes/record')(app ,Records);
+require('./routes/users')(app ,Members);
 //app.use('/getDayRecord', dayRecord);
 /*
 app.get('/getDayRecord/:id/:time', async(req, res) => {
