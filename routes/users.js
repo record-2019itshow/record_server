@@ -1,6 +1,7 @@
 module.exports = function (app, Members) {
     app.post('/signin', async(req, res) => {
         var result = await Members.findOne(req.body);
+
         if(!result){  // result에 값이 없으면
             res.status(400).json({
                 message: "failed"
@@ -16,7 +17,8 @@ module.exports = function (app, Members) {
     })
 
     .post('/signup', async(req, res) =>{
-        var member = new Member(req.body);
+        var member = new Members(req.body);
+
         try{
             await member.save();
         }catch(e){
@@ -30,4 +32,4 @@ module.exports = function (app, Members) {
         });
         
     });
-};
+}
