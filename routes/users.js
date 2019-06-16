@@ -13,9 +13,13 @@ module.exports = function (app, Member) {
                 message:"signin"
             });
         }
-
     })
+<<<<<<< HEAD:route/users/users.js
     .post('/signup', async(req, res)=>{
+=======
+
+    .post('signup', async(req, res) =>{
+>>>>>>> f2af5fa309b46e955ac504a02691d74773b8eba3:routes/users.js
         var member = new Member(req.body);
 
         try{
@@ -31,4 +35,8 @@ module.exports = function (app, Member) {
         });
         
     });
+<<<<<<< HEAD:route/users/users.js
 };
+=======
+}
+>>>>>>> f2af5fa309b46e955ac504a02691d74773b8eba3:routes/users.js

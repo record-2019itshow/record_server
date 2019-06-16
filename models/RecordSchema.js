@@ -1,7 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-let db = mongoose.connection;
+// DB Connect
+var db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function() {
+  console.log("Connected to mongodb server");
+});
 
 var RecordSchema = new Schema({ // record
  id: String, // 레코드 작성한 사람의 아이디
@@ -24,6 +29,10 @@ var MemberSchema = new Schema({ // 회원
  pw: String // 회원 패스워드
 });
 
-module.exports = mongoose.model('Record', RecordSchema);
-module.exports = mongoose.model('HashTag', HashTagSchema);
-module.exports = mongoose.model('Member', MemberSchema);
+let Records = mongoose.model("Record", RecordSchema);
+let HashTags = mongoose.model("HashTag", HashTagSchema);
+let Members = mongoose.model("Member", MemberSchema);
+
+export { Records, HashTags, Members };
+
+export default db;
