@@ -19,8 +19,8 @@ var RecordSchema = new Schema({ // record
 var HashTagSchema = new Schema({ // 해시태그
  record_key: String, // 레코드 고유 키
  hashTag: String, // 해시태그
- hashTag_key: {type: Schema.ObjectId, ref:'Record', unique: true} 
- // 해시태그 고유 키
+ // hashTag_key: {type: Schema.ObjectId, ref:'Record', unique: true} // 해시태그 고유 키
+ hashTag_key: {type: String, unique: true}
 });
 
 var MemberSchema = new Schema({ // 회원
