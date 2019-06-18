@@ -1,5 +1,3 @@
-
-
 module.exports = function (app, Members) {
     app.post('/signin', async(req, res) => {
         var result = await Members.findOne(req.body);
