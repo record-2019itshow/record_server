@@ -22,16 +22,6 @@ var RecordSchema = new Schema({ // record
   versionKey: false // You should be aware of the outcome after set to false
 });
 
-<<<<<<< HEAD
-var HashTagSchema = new Schema({ // 해시태그
- record_key: String, // 레코드 고유 키
- hashTag: String, // 해시태그
-}, {
-  versionKey: false // You should be aware of the outcome after set to false
-});
-
-=======
->>>>>>> ff8cdecdfa2258e523ce1db2cce5aadbcd8d4421
 var MemberSchema = new Schema({ // 회원
  name: String, // 회원 이름
  id: {type: String, unique: true}, // 회원 아이디
