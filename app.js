@@ -14,6 +14,8 @@ app.use(session({
   saveUninitialized: true
  }));
 
+ app.use(express.static('public'));
+
 // DB Connect
 var db = mongoose.connection;
 db.on('error', console.error);
@@ -36,6 +38,7 @@ import { Records, HashTags, Members } from './models/RecordSchema';
 var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
+require('./routes/addRecord/addRecord')(app ,Records, Members);
 require('./routes/record/dayRecord')(app ,Records);
 require('./routes/users/users')(app ,Members);
 //app.use('/getDayRecord', dayRecord);
