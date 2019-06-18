@@ -41,7 +41,7 @@ module.exports = (app, Records, Members) => {
             });
         });
 
-    });
+    }
 
     function randomString(len) {
         var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -52,4 +52,3 @@ module.exports = (app, Records, Members) => {
             }
         return randomstring;
         }
-    }
