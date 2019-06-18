@@ -29,7 +29,7 @@ mongoose.set('useCreateIndex', true)
 mongoose.connect("mongodb://localhost/record", { useNewUrlParser: true });
 
 // Define Model
-import { Records, HashTags, Members } from './models/RecordSchema';
+import { Records, Members } from './models/RecordSchema';
 
 // var Member = RecordModel.Member;
 // var HashTag = RecordModel.HashTag;
@@ -38,19 +38,9 @@ import { Records, HashTags, Members } from './models/RecordSchema';
 var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
-require('./routes/addRecord/addRecord')(app ,Records, Members);
-require('./routes/record/dayRecord')(app ,Records);
-require('./routes/users/users')(app ,Members);
-//app.use('/getDayRecord', dayRecord);
-/*
-app.get('/getDayRecord/:id/:time', async(req, res) => {
-  console.log("connect");
-  var result = await records.findOne({ id: req.params.id, time: req.params.time });
-  //if(result) res.status(200).json(result);
-  //else res.status(400).json({message: 'No Record'});
-  //else res.send('No Record');
-  console.log(req.params.id);
-  res.send(result);
- });
-*/
+
+require('./routes/record')(app, Records);
+require('./routes/users')(app, Members);
+require('./routes/addRecord')(app ,Records, Members);
+
 module.exports = app;

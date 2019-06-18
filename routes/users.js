@@ -1,7 +1,8 @@
+
+
 module.exports = function (app, Members) {
     app.post('/signin', async(req, res) => {
         var result = await Members.findOne(req.body);
-
         if(!result){  // result에 값이 없으면
             res.status(400).json({
                 message: "failed"
@@ -28,7 +29,7 @@ module.exports = function (app, Members) {
         }
 
         res.status(200).json({
-            message : member
+            message : "signin"
         });
         
     });
