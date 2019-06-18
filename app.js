@@ -26,12 +26,12 @@ mongoose.set('useCreateIndex', true)
 mongoose.connect("mongodb://localhost/record", { useNewUrlParser: true });
 
 // Define Model
-import { Records, HashTags, Members } from './models/RecordSchema';
+import { Records, Members } from './models/RecordSchema';
 
 var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
-require('./routes/record')(app, Records, HashTags);
+require('./routes/record')(app, Records);
 require('./routes/users')(app, Members);
 
 
