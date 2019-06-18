@@ -15,14 +15,14 @@ const upload = multer({
 });
 
 module.exports = (app, Records, Members) => {
-    app.post('/addRecord', async (req, res) => {
+    app.post('/addRecord', upload.single('img'), async (req, res) => {
         let reqReco = new Records(req.body);
 
         let reqid = reqReco.id;
         
         reqReco.record_key = randomString(10);
         //임시로 랜덤 스트링 10개 생성
-
+        reqReco.img = URL + req.file.filename;
 
         //레코드 저장
         reqReco.save(async(err)=>{
@@ -30,8 +30,6 @@ module.exports = (app, Records, Members) => {
                 res.status(200).json(reqReco);
             });
         });
-        
-
         //Members 에 해시태그 추가
         await Members.findOne({id : reqid}, function (err, rawContent){
             if(err) throw err;
