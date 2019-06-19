@@ -26,23 +26,12 @@ module.exports = (app, Records, Members) => {
         await reqReco.save(async(err)=>{
                 if(err) res.status(400).json({message: "error!"});
             });
-        //Members 에 해시태그 추가
 
-        /*
-        await Members.findOne({id : reqReco.id}, async (err, rawContent)=>{
-            if(err) throw err;
-            rawContent.hashtags.unshift({ $addToSet: { hashtags: { $each: reqReco.hashtags } } });
-            rawContent.save(function(err){
-                if(err) res.status(400).json({ message: 'Unable to add hashtag' });
-            });
-        });
-        */
         await Members.updateOne({id: reqReco.id}, {$addToSet: { hashtags: { $each: reqReco.hashtags } }},
              async(err)=>{
                 if(err) res.status(400).json({message: "error!"});
                 res.status(200).json({ message : "ok!"});
-             })
-
+             });
     });
 }
 
