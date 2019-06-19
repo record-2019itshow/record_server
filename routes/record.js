@@ -1,6 +1,7 @@
 module.exports = (app, Records) => {
  app.get('/getDayRecord/:id/:time', async (req, res) => {
-  var result = await Records.find({ id: req.params.id, time: req.params.time });
+  var recordTime = new Date(req.params.time);
+  var result = await Records.find({ id: req.params.id, time: recordTime });
   if(result) res.status(200).json(result);
   else res.status(400).json('Not Found Record');
  })
