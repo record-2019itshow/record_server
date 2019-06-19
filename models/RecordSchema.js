@@ -12,11 +12,7 @@ var RecordSchema = new Schema({ // record
  id: String, // 레코드 작성한 사람의 아이디
  img: String, // 레코드에 들어가는 이미지 path
  content: String, // 레코드에 들어가는 한 줄
- //time: {type: Date, default: Date.now()}, // 레코드 작성 시간
- time: { $dateToString: {
-   date: Date,
-   format: "%Y-%m-%d"
- } },
+ time: {type: Date, default: Date.now()}, // 레코드 작성 시간
  record_key: {type: String, unique: true}, // 레코드 고유 키
  hashtags: [{
   //token: { type: String },
