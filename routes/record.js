@@ -16,7 +16,7 @@ module.exports = (app, Records) => {
   else res.status(400).json('Not Found Record');
  })
  .get('/getSingleRecord/:id/:record_key', async (req, res) => {
-  var result = await Records.find({ id: req.params.id, record_key: req.params.record_key });
+  var result = await Records.findOne({ id: req.params.id, record_key: req.params.record_key });
   if(result) res.status(200).json(result);
   else res.status(400).json('Not Found Record');
  });
