@@ -1,4 +1,5 @@
 import express from 'express'
+import path from 'path'
 const session = require('express-session');
 
 var Schema = require('mongoose');
@@ -14,7 +15,7 @@ app.use(session({
   saveUninitialized: true
  }));
 
- app.use(express.static('public'));
+ app.use(express.static(path.join(__dirname, 'public')));
 
 // DB Connect
 var db = mongoose.connection;
