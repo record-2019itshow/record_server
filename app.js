@@ -40,7 +40,7 @@ var SchemaController = require('./models/SchemaController');
 app.use('/record', SchemaController);
 
 
-require('./routes/record')(app, Records);
+require('./routes/record')(app, Records, Members);
 require('./routes/users')(app, Members);
 require('./routes/addRecord')(app ,Records, Members);
 
