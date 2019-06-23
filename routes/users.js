@@ -15,7 +15,7 @@ module.exports = function (app, Members) {
         }
     })
 
-    .post('/signup', async(req, res) =>{
+    .post('/signup', async(req, res) => {
         var member = new Members(req.body);
 
         try{
