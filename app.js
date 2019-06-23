@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 var multer  = require('multer');
+
 app.use(session({
   secret: '@#@$MYSIGN#@$#$', // 우선 임의로 키 설정
   resave: false,
