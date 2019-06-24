@@ -16,7 +16,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.set('useCreateIndex', true)
-mongoose.connect("mongodb://127.0.0.1/record", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://dbfk028:rthmwl4892@cluster0-kccti.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
