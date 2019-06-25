@@ -17,12 +17,12 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.set('useCreateIndex', true)
-mongoose.connect("mongodb://127.0.0.1/record", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://dbfk028:rthmwl4892@cluster0-kccti.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader("Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization");
   next();
 });
 
