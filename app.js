@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 var multer  = require('multer');
+
 app.use(session({
   secret: '@#@$MYSIGN#@$#$', // 우선 임의로 키 설정
   resave: false,
@@ -21,7 +22,7 @@ mongoose.connect("mongodb+srv://dbfk028:rthmwl4892@cluster0-kccti.mongodb.net/te
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization");
   next();
 });
 

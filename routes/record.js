@@ -11,7 +11,7 @@ module.exports = (app, Records, Members) => {
   else res.status(400).json('Not Found Record');
  })
  .get('/getAllRecord/:id', async (req, res) => {
-  var result = await Records.find({ id: req.params.id });
+  var result = await Records.find({ id: req.params.id }).sort({ time: -1 });
   if(result) res.status(200).json(result);
   else res.status(400).json('Not Found Record');
  })
@@ -22,7 +22,7 @@ module.exports = (app, Records, Members) => {
  })
  .get('/getAllHash/:id', async (req, res) => {
   var result = await Members.findOne({ id: req.params.id });
-  if(result) res.status(200).json({ result: result.hashtags });
+  if(result) res.status(200).json(result.hashtags);
   else res.status(400).json('Not Found User');
  });
 }
