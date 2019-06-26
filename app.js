@@ -20,9 +20,9 @@ mongoose.set('useCreateIndex', true)
 mongoose.connect("mongodb+srv://dbfk028:rthmwl4892@cluster0-kccti.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader("Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization");
+  res.header("Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization");
   next();
 });
 
