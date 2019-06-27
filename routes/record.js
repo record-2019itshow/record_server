@@ -21,7 +21,7 @@ module.exports = (app, Records, Members) => {
   else res.status(400).json('Not Found Record');
  })
  .get('/getAllHash/:id', async (req, res) => {
-  var result = await Members.find({ id: req.params.id });
+  var result = await Members.findOne({ id: req.params.id });
   if(result) res.status(200).json(result.hashtags);
   else res.status(400).json('Not Found User');
  });
